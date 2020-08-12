@@ -1,0 +1,62 @@
+#!/bin/bash
+
+scf='scf.inp'
+mr='magn_rkb.inp'
+ms='magn_smb.inp'
+mem=900
+
+function run_bs () {
+    python generate_et_set.py  \
+              --atom_number=$1 \
+              --zeta=$2 \
+              --guide_bs_dir=$3 \
+              --guide_bs_fname=$4 \
+              --choose_start_expval=$5 \
+              --choose_start_Nexp=$6 \
+              --decrease=$7 \
+              --result_bs_allexp_fname=$8 \
+              --result_bs_elementexp_fname=$9 \
+              --mol_template_dir=$10 \
+              --mol_template=$11
+}
+
+
+function run_dirac () {
+    pam-master --mw=${mem} --inp=$scf --mol=$1  --outcmo
+    pam-master --mw=${mem} --inp=$mr  --mol=$1  --incmo
+    pam-master --mw=${mem} --inp=$ms  --mol=$1  --incmo
+    rm -f DFCOEF
+}
+
+
+# --------- original bs -----------
+#run_dirac "Kr_dyallacv4z.mol"
+
+# ------ et set: first round -----
+DIRAC_bs_dir="/home/gosia/devel/dirac/basis"
+run_bs 36 3 $DIRAC_bs_dir "dyall.v3z" 'max_of_gs'     50 'y' 'allset_et_3z_start_from_maxall_dyallv3z'     'Kr_et_3z_start_from_maxall_dyallv3z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.v3z" 'max_of_gs'     50 'y' 'allset_et_4z_start_from_maxall_dyallv3z'     'Kr_et_4z_start_from_maxall_dyallv3z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.v3z" 'max_of_atomgs' 50 'y' 'allset_et_3z_start_from_maxelement_dyallv3z' 'Kr_et_3z_start_from_maxelement_dyallv3z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.v3z" 'max_of_atomgs' 50 'y' 'allset_et_4z_start_from_maxelement_dyallv3z' 'Kr_et_4z_start_from_maxelement_dyallv3z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.v3z" 'min_of_gs'     50 'n' 'allset_et_3z_start_from_minall_dyallv3z'     'Kr_et_3z_start_from_minall_dyallv3z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.v3z" 'min_of_gs'     50 'n' 'allset_et_4z_start_from_minall_dyallv3z'     'Kr_et_4z_start_from_minall_dyallv3z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.v3z" 'min_of_atomgs' 50 'n' 'allset_et_3z_start_from_minelement_dyallv3z' 'Kr_et_3z_start_from_minelement_dyallv3z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.v3z" 'min_of_atomgs' 50 'n' 'allset_et_4z_start_from_minelement_dyallv3z' 'Kr_et_4z_start_from_minelement_dyallv3z'
+
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.acv4z" 'max_of_gs'     50 'y' 'allset_et_3z_start_from_maxall_dyallacv4z'     'Kr_et_3z_start_from_maxall_dyallacv4z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.acv4z" 'max_of_gs'     50 'y' 'allset_et_4z_start_from_maxall_dyallacv4z'     'Kr_et_4z_start_from_maxall_dyallacv4z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.acv4z" 'max_of_atomgs' 50 'y' 'allset_et_3z_start_from_maxelement_dyallacv4z' 'Kr_et_3z_start_from_maxelement_dyallacv4z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.acv4z" 'max_of_atomgs' 50 'y' 'allset_et_4z_start_from_maxelement_dyallacv4z' 'Kr_et_4z_start_from_maxelement_dyallacv4z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.acv4z" 'min_of_gs'     50 'n' 'allset_et_3z_start_from_minall_dyallacv4z'     'Kr_et_3z_start_from_minall_dyallacv4z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.acv4z" 'min_of_gs'     50 'n' 'allset_et_4z_start_from_minall_dyallacv4z'     'Kr_et_4z_start_from_minall_dyallacv4z'
+
+run_bs 36 3 $DIRAC_bs_dir "dyall.acv4z" 'min_of_atomgs' 50 'n' 'allset_et_3z_start_from_minelement_dyallacv4z' 'Kr_et_3z_start_from_minelement_dyallacv4z'
+run_bs 36 4 $DIRAC_bs_dir "dyall.acv4z" 'min_of_atomgs' 50 'n' 'allset_et_4z_start_from_minelement_dyallacv4z' 'Kr_et_4z_start_from_minelement_dyallacv4z'
+
+
