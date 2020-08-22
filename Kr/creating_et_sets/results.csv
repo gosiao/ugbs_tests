@@ -1,0 +1,20 @@
+name,basis_set,total_energy,Niter
+
+Kr_dyallacv4z                                 , 31s22p14d6f4g1h   , -2801.2936360414110 , 11 
+Kr_dyallv3z                                   , 23s16p10d1f       , -2801.2925148237459 , 11
+Kr_et_3z_start_from_maxall_dyallv3z           , 28s20p12d1f       , -2801.2924394673532 , 11
+Kr_et_3z_start_from_maxelement_dyallv3z       , 27s21p12d1f       , -2801.2928109450445 , 11
+Kr_et_3z_start_from_minall_dyallv3z           , 28s21p13d1f       , -2801.2926953534575 , 11
+Kr_et_3z_start_from_minelement_dyallv3z       , 28s20p12d1f       , -2801.2925154096010 , 11
+Kr_et_3z_start_from_maxall_dyallacv4z         , 30s26p16d8f7g1h   , -2801.2929260498258 , 12
+Kr_et_3z_start_from_maxelement_dyallacv4z     , 29s26p16d8f7g1h   , -2801.2928992371412 , 11
+Kr_et_3z_start_from_minall_dyallacv4z         , 30s27p15d8f6g1h   , -2801.2927864788271 , 23
+Kr_et_3z_start_from_minelement_dyallacv4z     , 30s26p15d8f7g1h   , -2801.2926953534575 , 50*
+Kr_et_4z_start_from_maxall_dyallv3z           , 37s27p15d1f       , -2801.2935682724828 , 50*
+Kr_et_4z_start_from_maxelement_dyallv3z       , 36s27p16d1f       , -2801.2935759429674 , 50*
+Kr_et_4z_start_from_minall_dyallv3z           , 36s27p16d1f       , -2801.2935866823254 , 50*
+Kr_et_4z_start_from_minelement_dyallv3z       , 37s26p16d1f       , -2801.2933431625356 , 50*
+Kr_et_4z_start_from_maxall_dyallacv4z         , 39s34p20d10f8g1h  , -2801.2938021414689 , 50*
+Kr_et_4z_start_from_maxelement_dyallacv4z     , 39s34p20d10f8g1h  , -2801.2938029518637 , 50*
+Kr_et_4z_start_from_minall_dyallacv4z         , 39s35p20d10f8g1h  , -2801.2937850564358 , 50*
+Kr_et_4z_start_from_minelement_dyallacv4z     , 39s34p20d10f8g1h  , -2801.2937999226242 , 50*

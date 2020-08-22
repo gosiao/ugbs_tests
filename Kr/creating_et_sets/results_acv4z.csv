@@ -1,0 +1,11 @@
+name,basis_set,total_energy,Niter
+
+Kr_dyallacv4z                                 , 31s22p14d6f4g1h   , -2801.2936360414110 , 11 
+Kr_et_3z_start_from_maxall_dyallacv4z         , 30s26p16d8f7g1h   , -2801.2929260498258 , 12
+Kr_et_3z_start_from_maxelement_dyallacv4z     , 29s26p16d8f7g1h   , -2801.2928992371412 , 11
+Kr_et_3z_start_from_minall_dyallacv4z         , 30s27p15d8f6g1h   , -2801.2927864788271 , 23
+Kr_et_3z_start_from_minelement_dyallacv4z     , 30s26p15d8f7g1h   , -2801.2926953534575 , 50*
+Kr_et_4z_start_from_maxall_dyallacv4z         , 39s34p20d10f8g1h  , -2801.2938021414689 , 50*
+Kr_et_4z_start_from_maxelement_dyallacv4z     , 39s34p20d10f8g1h  , -2801.2938029518637 , 50*
+Kr_et_4z_start_from_minall_dyallacv4z         , 39s35p20d10f8g1h  , -2801.2937850564358 , 50*
+Kr_et_4z_start_from_minelement_dyallacv4z     , 39s34p20d10f8g1h  , -2801.2937999226242 , 50*
